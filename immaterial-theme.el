@@ -175,7 +175,7 @@ over the default ones defined in immaterial-color-alist."
    ;; mode-line of the active buffer (e.g. in case of split window)
    `(mode-line ((,class (:foreground ,fg1 :background ,bg2))))
    ;; mode-line of the inactive buffer (e.g. in case of split window)
-   `(mode-line-inactive  ((,class (:foreground ,discrete :background ,bg1))))
+   `(mode-line-inactive  ((,class (:foreground ,discrete :background ,bg3))))
    `(mode-line-buffer-id ((,class (:foreground ,fg1 :weight bold))))
 
    ;;
@@ -185,8 +185,8 @@ over the default ones defined in immaterial-color-alist."
    `(powerline-active1 ((,class (:background ,bg3 :foreground ,fg1))))
    `(powerline-active2 ((,class (:background ,bg2 :foreground ,fg1))))
    ;; for inactive buffers in the frame
-   `(powerline-inactive1 ((,class (:background ,bg1 :foreground ,discrete))))
-   `(powerline-inactive2 ((,class (:background ,bg1 :foreground ,discrete))))
+   `(powerline-inactive1 ((,class (:background ,bg3 :foreground ,discrete))))
+   `(powerline-inactive2 ((,class (:background ,bg3 :foreground ,discrete))))
 
    `(vertical-border ((,class (:foreground ,fg3))))
    `(minibuffer-prompt ((,class (:bold t :foreground ,prim))))
