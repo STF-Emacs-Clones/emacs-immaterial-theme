@@ -168,7 +168,10 @@ over the default ones defined in immaterial-color-alist."
    `(cursor ((,class (:background ,cursor))))
    `(show-paren-match-face ((,class (:background ,fg1 :foreground ,bg1))))
    `(show-paren-mismatch-face ((,class (:background ,error))))
-   `(isearch ((,class (:bold t :foreground ,fg1 :background ,bg2))))
+   ;; current match of an on-going incremental search
+   `(isearch ((,class (:bold t :foreground ,bg2 :background ,fg2))))
+   ;; other matches for the search string that are visible on display
+   `(lazy-highlight ((,class (:foreground ,bg2 :background ,fg2))))
    ;;
    ;; mode-line
    ;;
@@ -212,7 +215,6 @@ over the default ones defined in immaterial-color-alist."
 
    `(slime-repl-inputed-output-face ((,class (:foreground ,sec))))
    `(trailing-whitespace ((,class :foreground nil :background ,warning)))
-   `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
    ;;
    ;; ansi-term/term
    ;;
