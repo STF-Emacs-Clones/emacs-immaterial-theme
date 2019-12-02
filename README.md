@@ -57,12 +57,12 @@ The following are the full list of colors defined in the default
  | `foreground-primary`   | ![#eeeeee](https://placehold.it/15/eeeeee/000000?text=+) `#eeeeee` |
  | `foreground-secondary` | ![#dbdbdb](https://placehold.it/15/dbdbdb/000000?text=+) `#dbdbdb` |
  | `foreground-tertiary`  | ![#c8c8c8](https://placehold.it/15/c8c8c8/000000?text=+) `#c8c8c8` |
- | `primary`              | ![#4db6ac](https://placehold.it/15/4db6ac/000000?text=+) `#4db6ac` |
- | `primary-light`        | ![#82e9de](https://placehold.it/15/82e9de/000000?text=+) `#82e9de` |
- | `primary-dark`         | ![#00867d](https://placehold.it/15/00867d/000000?text=+) `#00867d` |
- | `secondary`            | ![#aed581](https://placehold.it/15/aed581/000000?text=+) `#aed581` |
- | `secondary-light`      | ![#e1ffb1](https://placehold.it/15/e1ffb1/000000?text=+) `#e1ffb1` |
- | `secondary-dark`       | ![#7da453](https://placehold.it/15/7da453/000000?text=+) `#7da453` |
+ | `primary`              | ![#80cbc4](https://placehold.it/15/4db6ac/000000?text=+) `#80cbc4` |
+ | `primary-light`        | ![#b2fef7](https://placehold.it/15/82e9de/000000?text=+) `#b2fef7` |
+ | `primary-dark`         | ![#4f9a94](https://placehold.it/15/00867d/000000?text=+) `#4f9a94` |
+ | `secondary`            | ![#c5e1a5](https://placehold.it/15/aed581/000000?text=+) `#c5e1a5` |
+ | `secondary-light`      | ![#f8ffd7](https://placehold.it/15/e1ffb1/000000?text=+) `#f8ffd7` |
+ | `secondary-dark`       | ![#94af76](https://placehold.it/15/7da453/000000?text=+) `#94af76` |
  | `error`                | ![#FF5555](https://placehold.it/15/FF5555/000000?text=+) `#ff5555` |
  | `warning`              | ![#e86310](https://placehold.it/15/e86310/000000?text=+) `#e86310` |
  | `discrete`             | ![#777777](https://placehold.it/15/777777/000000?text=+) `#777777` |
@@ -81,7 +81,8 @@ palette:
 
 **Note**: it is highly recommended to make use of the [Material color
 tool](https://material.io/tools/color) to experiment with color palettes and
-variants of a certain color.
+variants of a certain color. For dark themes, less saturated colors (200 and
+less) from the color palette improves readability.
 
 **Note**: emacs [rainbow-mode](https://elpa.gnu.org/packages/rainbow-mode.html)
 comes in handy for highlighting each hex color being edited in you emacs init
