@@ -53,9 +53,9 @@ for constructing primary and secondary color schemes.")
 
 ;; Tip: enable rainbow-mode to preview the colors.
 (defconst immaterial-color-alist
-  '(("background-primary"    . "#102027")
-    ("background-secondary"  . "#37474f")
-    ("background-tertiary"   . "#62727b")
+  '(("background-primary"    . "#012027")
+    ("background-secondary"  . "#023747")
+    ("background-tertiary"   . "#001017")
     ("foreground-primary"    . "#eeeeee")
     ("foreground-secondary"  . "#dbdbdb")
     ("foreground-tertiary"   . "#c8c8c8")
@@ -176,16 +176,16 @@ over the default ones defined in immaterial-color-alist."
    ;; mode-line
    ;;
    ;; mode-line of the active buffer (e.g. in case of split window)
-   `(mode-line ((,class (:foreground ,fg1 :background ,bg2))))
+   `(mode-line ((,class (:background ,bg2 :foreground ,fg1))))
    ;; mode-line of the inactive buffer (e.g. in case of split window)
-   `(mode-line-inactive  ((,class (:foreground ,discrete :background ,bg3))))
+   `(mode-line-inactive  ((,class (:background ,bg3 :foreground ,discrete ))))
    `(mode-line-buffer-id ((,class (:foreground ,fg1 :weight bold))))
 
    ;;
    ;; powerline
    ;;
    ;; for active buffer in the frame
-   `(powerline-active1 ((,class (:background ,bg3 :foreground ,fg1))))
+   `(powerline-active1 ((,class (:background ,bg2 :foreground ,fg1))))
    `(powerline-active2 ((,class (:background ,bg2 :foreground ,fg1))))
    ;; for inactive buffers in the frame
    `(powerline-inactive1 ((,class (:background ,bg3 :foreground ,discrete))))

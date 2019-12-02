@@ -20,6 +20,10 @@ elements:
   Comes in three flavors: `background-primary`, `background-secondary`,
   `background-tertiary` with falling degree of use in the theme.
 
+  For dark themes, these should preferably be defined in increasing order of
+  brightness (`background-primary` being the darkest and `background-tertiary`
+  being the brightest).
+
 - `foreground`: used for plain text and editor decorations of different kinds.
 
   Comes in three flavors: `foreground-primary`, `foreground-secondary`,
