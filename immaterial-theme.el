@@ -54,21 +54,21 @@ for constructing primary and secondary color schemes.")
 ;; Tip: enable rainbow-mode to preview the colors.
 (defconst immaterial-color-alist
   '(("background-primary"    . "#012027")
-    ("background-secondary"  . "#023747")
-    ("background-tertiary"   . "#001017")
+    ("background-on"         . "#023747")
+    ("background-off"        . "#001017")
     ("foreground-primary"    . "#eeeeee")
     ("foreground-secondary"  . "#dbdbdb")
     ("foreground-tertiary"   . "#c8c8c8")
-    ("primary"         . "#80cbc4")
-    ("primary-light"   . "#b2fef7")
-    ("primary-dark"    . "#4f9a94")
-    ("secondary"       . "#c5e1a5")
-    ("secondary-light" . "#f8ffd7")
-    ("secondary-dark"  . "#94af76")
-    ("error"           . "#ff5555")
-    ("warning"         . "#e86310")
-    ("discrete"        . "#777777")
-    ("cursor"          . "#e86310"))
+    ("primary"               . "#80cbc4")
+    ("primary-light"         . "#b2fef7")
+    ("primary-dark"          . "#4f9a94")
+    ("secondary"             . "#c5e1a5")
+    ("secondary-light"       . "#f8ffd7")
+    ("secondary-dark"        . "#94af76")
+    ("error"                 . "#ff5555")
+    ("warning"               . "#e86310")
+    ("discrete"              . "#777777")
+    ("cursor"                . "#e86310"))
   "The default color palette to use for the theme.
 Values can be overridden via immaterial-color-override-alist).
 The palette was created using the https://material.io/tools/color/ tool.")
@@ -85,9 +85,9 @@ over the default ones defined in immaterial-color-alist."
       (fg1        (immaterial-color "foreground-primary"))
       (fg2        (immaterial-color "foreground-secondary"))
       (fg3        (immaterial-color "foreground-tertiary"))
-      (bg1        (immaterial-color "background-primary"))
-      (bg2        (immaterial-color "background-secondary"))
-      (bg3        (immaterial-color "background-tertiary"))
+      (bg-prim    (immaterial-color "background-primary"))
+      (bg-on      (immaterial-color "background-on"))
+      (bg-off     (immaterial-color "background-off"))
       (prim       (immaterial-color "primary"))
       (prim-light (immaterial-color "primary-light"))
       (prim-dark  (immaterial-color "primary-dark"))
@@ -110,7 +110,7 @@ over the default ones defined in immaterial-color-alist."
       (cursor     (immaterial-color "cursor")))
   (custom-theme-set-faces
    'immaterial
-   `(default ((,class (:background ,bg1 :foreground ,fg1))))
+   `(default ((,class (:background ,bg-prim :foreground ,fg1))))
    ;;
    ;; Syntax higlighting/font-lock minor mode. (syntax rules are provided by
    ;; the particular major-mode).
@@ -143,7 +143,7 @@ over the default ones defined in immaterial-color-alist."
    `(font-lock-negation-char-face ((,class (:foreground ,negation))))
    ;; for a construct that is peculiar, or that greatly changes the meaning of
    ;; other text, like ‘;;;###autoload’ in Emacs Lisp and ‘#error’ in C.
-   `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
+   `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg-on))))
 
    ;;
    ;; Buttons and links
@@ -155,41 +155,42 @@ over the default ones defined in immaterial-color-alist."
    ;;
    ;; region selection
    ;;
-   `(region ((,class (:background ,bg3))))
-   `(highlight ((,class (:background ,bg2))))
+   `(region ((,class (:background ,bg-on :foreground ,fg2))))
+   `(highlight ((,class (:background ,bg-on :foreground ,fg2))))
    ;; hl-line-mode background
-   `(hl-line ((,class (:background  ,bg2))))
+   `(hl-line ((,class (:background ,bg-on))))
    ;; linum-mode column
-   `(linum  ((t (:foreground ,linum-fg :background ,bg1 :height 1.0 :weight normal))))
+   `(linum ((t (:foreground ,discrete :background ,bg-prim :height 1.0 :weight normal))))
    ;; display-line-numbers-mode (emacs26+)
-   `(line-number  ((t (:foreground ,linum-fg :background ,bg1 :height 1.0 :weight normal))))
-   `(line-number-current-line  ((t (:foreground ,fg1 :background ,bg1 :height 1.0 :weight normal))))
-   `(fringe ((,class (:background ,bg1))))
+   `(line-number ((t (:foreground ,discrete :background ,bg-prim :height 1.0 :weight normal))))
+   `(line-number-current-line ((t (:foreground ,fg1 :background ,bg-prim :height 1.0 :weight normal))))
+   `(fringe ((,class (:background ,bg-prim))))
    `(cursor ((,class (:background ,cursor))))
-   `(show-paren-match-face ((,class (:background ,fg1 :foreground ,bg1))))
-   `(show-paren-mismatch-face ((,class (:background ,error))))
+   ;; show-paren-mode: how to highlight matching/mismatching parenthesis
+   `(show-paren-match ((,class (:weight bold :background ,bg-on))))
+   `(show-paren-mismatch ((,class (:background ,error))))
    ;; current match of an on-going incremental search
-   `(isearch ((,class (:bold t :foreground ,bg2 :background ,fg2))))
+   `(isearch ((,class (:weight bold :background ,bg-on :foreground ,fg1))))
    ;; other matches for the search string that are visible on display
-   `(lazy-highlight ((,class (:foreground ,bg2 :background ,fg2))))
+   `(lazy-highlight ((,class (:weight bold :background ,bg-on :foreground ,fg1))))
    ;;
    ;; mode-line
    ;;
    ;; mode-line of the active buffer (e.g. in case of split window)
-   `(mode-line ((,class (:background ,bg2 :foreground ,fg1))))
+   `(mode-line ((,class (:background ,bg-on :foreground ,fg1))))
    ;; mode-line of the inactive buffer (e.g. in case of split window)
-   `(mode-line-inactive  ((,class (:background ,bg3 :foreground ,discrete))))
+   `(mode-line-inactive  ((,class (:background ,bg-off :foreground ,discrete))))
    `(mode-line-buffer-id ((,class (:weight bold))))
 
    ;;
    ;; powerline
    ;;
    ;; for active buffer in the frame
-   `(powerline-active1 ((,class (:background ,bg2 :foreground ,fg1))))
-   `(powerline-active2 ((,class (:background ,bg2 :foreground ,fg1))))
+   `(powerline-active1 ((,class (:background ,bg-on :foreground ,fg1))))
+   `(powerline-active2 ((,class (:background ,bg-on :foreground ,fg1))))
    ;; for inactive buffers in the frame
-   `(powerline-inactive1 ((,class (:background ,bg3 :foreground ,discrete))))
-   `(powerline-inactive2 ((,class (:background ,bg3 :foreground ,discrete))))
+   `(powerline-inactive1 ((,class (:background ,bg-off :foreground ,discrete))))
+   `(powerline-inactive2 ((,class (:background ,bg-off :foreground ,discrete))))
 
    `(vertical-border ((,class (:foreground ,fg3))))
    `(minibuffer-prompt ((,class (:bold t :foreground ,prim))))
@@ -203,7 +204,7 @@ over the default ones defined in immaterial-color-alist."
    `(warning ((,class (:foreground ,warning))))
    `(ac-completion-face ((,class (:underline t :foreground ,prim))))
    `(info-quoted-name ((,class (:foreground ,prim-light))))
-   `(info-string ((,class (:foreground ,str))))
+   `(info-string ((,class (:foreground ,prim))))
    `(icompletep-determined ((,class :foreground ,prim-light)))
    ;;
    ;; undo-tree
@@ -226,33 +227,33 @@ over the default ones defined in immaterial-color-alist."
    `(term-color-magenta ((,class (:foreground ,(immaterial-color "warning") :background ,(immaterial-color "warning")))))
    `(term-color-cyan    ((,class (:foreground ,(immaterial-color "secondary-dark") :background ,(immaterial-color "secondary-dark")))))
    `(term-color-green    ((,class (:foreground ,(immaterial-color "secondary") :background ,(immaterial-color "secondary")))))
-   `(term-color-white   ((,class (:foreground ,bg1 :background ,bg1))))
+   `(term-color-white   ((,class (:foreground ,bg-prim :background ,bg-prim))))
    ;;
    ;; company -- "complete any" completion engine
    ;;
    ;; Face used for the common part of completions in the echo area
-   `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
+   `(company-echo-common ((,class (:foreground ,fg1 :background ,bg-on))))
    ;; display (single remaining) suggestion while typing
-   `(company-preview ((,class (:background ,bg2 :foreground ,fg1))))
-   `(company-preview-common ((,class (:background ,bg2 :foreground ,fg1))))
-   `(company-preview-search ((,class (:foreground ,bg2 :background ,fg1))))
+   `(company-preview ((,class (:background ,bg-on :foreground ,fg1))))
+   `(company-preview-common ((,class (:background ,bg-on :foreground ,fg1))))
+   `(company-preview-search ((,class (:foreground ,bg-on :background ,fg1))))
    ;; scrollbar style in company tooltip
-   `(company-scrollbar-bg ((,class (:background ,bg3))))
-   `(company-scrollbar-fg ((,class (:foreground ,bg1))))
+   `(company-scrollbar-bg ((,class (:background ,bg-off))))
+   `(company-scrollbar-fg ((,class (:background ,bg-on))))
    ;; general style of tooltip popup
-   `(company-tooltip ((,class (:foreground ,bg2 :background ,fg2 :bold t))))
+   `(company-tooltip ((,class (:foreground ,fg1 :background ,bg-on :bold t))))
    ;; annotation appearance (could be the return-type of a function)
-   `(company-tooltip-annotation ((,class (:weight normal :foreground ,bg2 :background ,fg2))))
+   `(company-tooltip-annotation ((,class (:weight normal :foreground ,fg1 :background ,bg-on))))
    ;; annotation appearance for the selected item in the completion list
    `(company-tooltip-annotation-selection ((,class (:weight normal :inherit company-tooltip-selection))))
    `(company-tooltip-search ((,class (:weight normal :inherit company-tooltip-selection))))
    ;; the highlight style to use when typing and showing common search prefix
-   `(company-tooltip-common ((,class (:weight extra-bold :foreground ,bg1))))
-   `(company-tooltip-common-selection ((,class (:foreground ,str))))
+   `(company-tooltip-common ((,class (:foreground ,prim))))
+   `(company-tooltip-common-selection ((,class (:foreground ,prim))))
    ;; style for item mouse is hovering over
    `(company-tooltip-mouse ((,class (:inherit company-tooltip-selection))))
-   `(company-tooltip-selection ((,class (:background ,bg3 :foreground ,fg3))))
-   `(company-tooltip-selection ((,class (:weight bold :foreground ,fg3 :background ,bg3))))
+   `(company-tooltip-selection ((,class (:background ,bg-off :foreground ,fg3))))
+   `(company-tooltip-selection ((,class (:weight bold :foreground ,fg3 :background ,bg-off))))
    ;;
    ;; sh-mode
    ;;

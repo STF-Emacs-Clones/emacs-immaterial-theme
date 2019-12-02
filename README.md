@@ -17,12 +17,16 @@ elements:
 
 - `background`: used for the background of buffers, modeline, etc.
 
-  Comes in three flavors: `background-primary`, `background-secondary`,
-  `background-tertiary` with falling degree of use in the theme.
+  Comes in three flavors: `background-primary`, `background-on`,
+  `background-off`. Most of the background will be colored using
+  `background-primary`. `background-on` is used for highlighting or attracting
+  attention (such as the active modeline, search candidates,
+  etc). `background-off` is used to tone down part of the screen (such as the
+  inactive modeline in a split frame with several buffers).
 
-  For dark themes, these should preferably be defined in increasing order of
-  brightness (`background-primary` being the darkest and `background-tertiary`
-  being the brightest).
+  For dark themes, it is recommended to define `background-on` as a bit brigher
+  than `background-primary`, and `background-off` as darker than
+  `background-primary`.
 
 - `foreground`: used for plain text and editor decorations of different kinds.
 
@@ -55,9 +59,9 @@ The following are the full list of colors defined in the default
 
  | Property               | Color                                                              |
  | --------               | -----                                                              |
- | `background-primary`   | ![#102027](https://placehold.it/15/102027/000000?text=+) `#102027` |
- | `background-secondary` | ![#37474f](https://placehold.it/15/37474f/000000?text=+) `#37474f` |
- | `background-tertiary`  | ![#62727b](https://placehold.it/15/62727b/000000?text=+) `#62727b` |
+ | `background-primary`   | ![#102027](https://placehold.it/15/102027/000000?text=+) `#012027` |
+ | `background-on`        | ![#023747](https://placehold.it/15/023747/000000?text=+) `#023747` |
+ | `background-off`       | ![#001017](https://placehold.it/15/001017/000000?text=+) `#001017` |
  | `foreground-primary`   | ![#eeeeee](https://placehold.it/15/eeeeee/000000?text=+) `#eeeeee` |
  | `foreground-secondary` | ![#dbdbdb](https://placehold.it/15/dbdbdb/000000?text=+) `#dbdbdb` |
  | `foreground-tertiary`  | ![#c8c8c8](https://placehold.it/15/c8c8c8/000000?text=+) `#c8c8c8` |
@@ -100,33 +104,43 @@ The default theme in `go-mode`:
 
 ![default theme](screenshots/default-gomode.png)
 
+With a background palette similar to the [Solarized dark
+theme](https://ethanschoonover.com/solarized/).
+
+    (setq immaterial-color-override-alist
+      '(("background-primary" . "#002b36")
+        ("background-on"      . "#003644")
+        ("background-off"     . "#00212b")))
+
+![solarized-dark-like theme](screenshots/solarized-dark-like-gomode.png)
+
+
+With a palette producing a bright theme:
+
+    (setq immaterial-color-override-alist
+      '(("background-primary"   . "#fafafa")
+        ("background-on"        . "#cfd8dc")
+        ("background-off"       . "#eeeeee")
+        ("foreground-primary"   . "#263238")
+        ("foreground-secondary" . "#4f5b62")
+        ("foreground-tertiary"  . "#000a12")
+        ("primary"              . "#311b92")
+        ("primary-light"        . "#6746c3")
+        ("primary-dark"         . "#000063")
+        ("secondary"            . "#33691e")
+        ("secondary-light"      . "#629749")
+        ("secondary-dark"       . "#003d00")))
+
+![bright theme](screenshots/bright-gomode.png)
+
 With an updated `primary` palette:
 
     (setq immaterial-color-override-alist
-      '(("primary"         . "#ce93d8")
-        ("primary-light"   . "#ffc4ff")
-        ("primary-dark"    . "#9c64a6")))
+      '(("primary"         . "#b39ddb")
+        ("primary-light"   . "#e6ceff")
+        ("primary-dark"    . "#836fa9")))
 
-![customized theme](screenshots/custom-gomode.png)
-
-Updated to produce a light theme:
-
-    (setq immaterial-color-override-alist
-      '(("background-primary"    . "#fdf6e3")
-        ("background-secondary"  . "#eee8d5")
-        ("background-tertiary"   . "#bbb6a4")
-        ("foreground-primary"    . "#566668")
-        ("foreground-secondary"  . "#93a1a1")
-        ("foreground-tertiary"   . "#839496")
-        ("primary"         . "#1b5e20")
-        ("primary-light"   . "#4c8c4a")
-        ("primary-dark"    . "#003300")
-        ("secondary"       . "#0d47a1")
-        ("secondary-light" . "#5472d3")
-        ("secondary-dark"  . "#002171")))
-
-![custom light theme](screenshots/custom-light-gomode.png)
-
+![customized theme](screenshots/different-primary-gomode.png)
 
 
 ## Install
