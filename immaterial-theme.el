@@ -178,8 +178,8 @@ over the default ones defined in immaterial-color-alist."
    ;; mode-line of the active buffer (e.g. in case of split window)
    `(mode-line ((,class (:background ,bg2 :foreground ,fg1))))
    ;; mode-line of the inactive buffer (e.g. in case of split window)
-   `(mode-line-inactive  ((,class (:background ,bg3 :foreground ,discrete ))))
-   `(mode-line-buffer-id ((,class (:foreground ,fg1 :weight bold))))
+   `(mode-line-inactive  ((,class (:background ,bg3 :foreground ,discrete))))
+   `(mode-line-buffer-id ((,class (:weight bold))))
 
    ;;
    ;; powerline
