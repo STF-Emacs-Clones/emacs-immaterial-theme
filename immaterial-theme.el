@@ -155,7 +155,7 @@ over the default ones defined in immaterial-color-alist."
    ;;
    ;; region selection
    ;;
-   `(region ((,class (:foreground ,fg1 :background ,bg2))))
+   `(region ((,class (:background ,bg3))))
    `(highlight ((,class (:background ,bg2))))
    ;; hl-line-mode background
    `(hl-line ((,class (:background  ,bg2))))
