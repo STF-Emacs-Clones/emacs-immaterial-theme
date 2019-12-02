@@ -59,7 +59,7 @@ The following are the full list of colors defined in the default
 
  | Property               | Color                                                              |
  | --------               | -----                                                              |
- | `background-primary`   | ![#102027](https://placehold.it/15/102027/000000?text=+) `#012027` |
+ | `background-primary`   | ![#102027](https://placehold.it/15/012027/000000?text=+) `#012027` |
  | `background-on`        | ![#023747](https://placehold.it/15/023747/000000?text=+) `#023747` |
  | `background-off`       | ![#001017](https://placehold.it/15/001017/000000?text=+) `#001017` |
  | `foreground-primary`   | ![#eeeeee](https://placehold.it/15/eeeeee/000000?text=+) `#eeeeee` |
