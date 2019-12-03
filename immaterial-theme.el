@@ -282,7 +282,6 @@ over the default ones defined in immaterial-color-alist."
    ;;
    ;; treemacs
    ;;
-
    `(treemacs-root-face ((,class (:foreground ,sec-dark :inherit bold))))
    `(treemacs-directory-face ((,class (:foreground ,sec-dark))))
    `(treemacs-file-face ((,class (:inherit immaterial-small-face))))
@@ -293,6 +292,12 @@ over the default ones defined in immaterial-color-alist."
    `(treemacs-git-ignored-face ((,class (:foreground ,discrete))))
    `(treemacs-git-untracked-face ((,class (:foreground ,discrete))))
    `(treemacs-git-conflict-face ((,class (:foreground ,error :weight bold))))
+   ;;
+   ;; lsp-ui
+   ;;
+   ;; ui-doc popup
+   `(lsp-ui-doc-background ((,class (:backgroundw ,bg-on))))
+
    ))
 
 ;;;###autoload
