@@ -192,7 +192,8 @@ over the default ones defined in immaterial-color-alist."
    `(powerline-inactive1 ((,class (:background ,bg-off :foreground ,discrete))))
    `(powerline-inactive2 ((,class (:background ,bg-off :foreground ,discrete))))
 
-   `(vertical-border ((,class (:foreground ,fg3))))
+   ;; the vertical line that separates windows in a frame
+   `(vertical-border ((,class (:foreground ,bg-off))))
    `(minibuffer-prompt ((,class (:bold t :foreground ,prim))))
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,prim-dark :underline t))))
@@ -298,7 +299,6 @@ over the default ones defined in immaterial-color-alist."
    ;;
    ;; ui-doc popup
    `(lsp-ui-doc-background ((,class (:backgroundw ,bg-on))))
-
    ))
 
 ;;;###autoload
