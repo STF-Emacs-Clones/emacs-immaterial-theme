@@ -21,7 +21,7 @@ elements:
   `background-off`. Most of the background will be colored using
   `background-primary`. `background-on` is used for highlighting or attracting
   attention (such as the active modeline, search candidates,
-  etc). `background-off` is used to tone down part of the screen (such as the
+  etc). `background-off` is used to tone down parts of the screen (such as the
   inactive modeline in a split frame with several buffers).
 
   For dark themes, it is recommended to define `background-on` as a bit brigher
@@ -162,12 +162,3 @@ With an updated `primary` palette:
 
         (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
         (load-theme 'immaterial t)
-
-You may optionally customize the theme via
-`immaterial-color-override-alist`. For example:
-
-    (setq immaterial-color-override-alist
-          '(("primary"         . "#ffa726")
-            ("primary-light"   . "#ffd95b")
-            ("primary-dark"    . "#c77800")
-            ))
