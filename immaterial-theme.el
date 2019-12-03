@@ -217,17 +217,18 @@ over the default ones defined in immaterial-color-alist."
    `(slime-repl-inputed-output-face ((,class (:foreground ,sec))))
    `(trailing-whitespace ((,class :foreground nil :background ,warning)))
    ;;
-   ;; ansi-term/term
+   ;; ansi-term/term: set up colors that work well with the theme at large
    ;;
-   `(term ((,class (:foreground nil :background nil :inherit default))))
-   `(term-color-black   ((,class (:foreground ,fg1 :background ,fg1))))
-   `(term-color-red     ((,class (:foreground ,(immaterial-color "error") :background ,(immaterial-color "red")))))
-   `(term-color-blue   ((,class (:foreground ,(immaterial-color "primary-light") :background ,(immaterial-color "primary-light")))))
-   `(term-color-yellow  ((,class (:foreground ,(immaterial-color "primary") :background ,(immaterial-color "primary")))))
-   `(term-color-magenta ((,class (:foreground ,(immaterial-color "warning") :background ,(immaterial-color "warning")))))
-   `(term-color-cyan    ((,class (:foreground ,(immaterial-color "secondary-dark") :background ,(immaterial-color "secondary-dark")))))
-   `(term-color-green    ((,class (:foreground ,(immaterial-color "secondary") :background ,(immaterial-color "secondary")))))
-   `(term-color-white   ((,class (:foreground ,bg-prim :background ,bg-prim))))
+   `(term-default-fg-color ((,class (:foreground ,fg1, :background ,bg-prim))))
+   `(term-default-bg-color ((,class (:foreground ,fg1 :background ,bg-prim))))
+   `(term-color-red        ((,class (:foreground ,error :background ,bg-prim))))
+   `(term-color-blue       ((,class (:foreground ,prim-dark))))
+   `(term-color-yellow     ((,class (:foreground ,prim))))
+   `(term-color-magenta    ((,class (:foreground ,prim-light))))
+   `(term-color-black      ((,class (:foreground ,sec-dark))))
+   `(term-color-green      ((,class (:foreground ,sec))))
+   `(term-color-cyan       ((,class (:foreground ,sec-light))))
+   `(term-color-white      ((,class (:foreground ,fg1))))
    ;;
    ;; company -- "complete any" completion engine
    ;;
