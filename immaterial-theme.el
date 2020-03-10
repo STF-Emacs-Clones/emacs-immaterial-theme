@@ -207,6 +207,8 @@ over the default ones defined in immaterial-color-alist."
    ;; the vertical line that separates windows in a frame
    `(vertical-border ((,class (:foreground ,v-border))))
    `(minibuffer-prompt ((,class (:bold t :foreground ,prim))))
+   ;; used for secondary selections. For example, on `org-read-date`.
+   `(secondary-selection ((t (:background ,bg-on))))
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,prim-dark :underline t))))
 
@@ -344,6 +346,67 @@ over the default ones defined in immaterial-color-alist."
    ;;
    `(ivy-posframe ((,class (:background ,bg-off))))
    `(ivy-posframe-border ((,class (:background ,discrete))))
+
+   ;;
+   ;; org-mode
+   ;;
+
+   ;; face to use for #+TITLE: document info keyword
+   `(org-document-title ((,class (:foreground ,prim-light :weight bold))))
+   ;; face to use for value following #+DATE:, #+AUTHOR:, #+EMAIL:
+   `(org-document-info ((,class (:foreground ,prim-light))))
+   ;; face to use for keywords #+DATE:, #+AUTHOR:, #+EMAIL:
+   `(org-document-info-keyword ((,class (:foreground ,prim-dark))))
+   ;; face used for headlines at different levels
+   `(org-level-1 ((,class (:foreground ,sec-dark))))
+   `(org-level-2 ((,class (:foreground ,sec-dark))))
+   `(org-level-3 ((,class (:foreground ,sec-dark))))
+   `(org-level-4 ((,class (:foreground ,sec-dark))))
+   `(org-level-5 ((,class (:foreground ,sec-dark))))
+   `(org-level-6 ((,class (:foreground ,sec-dark))))
+   `(org-level-7 ((,class (:foreground ,sec-dark))))
+   `(org-level-8 ((,class (:foreground ,sec-dark))))
+   ;; face for the ellipsis in folded text
+   `(org-ellipsis ((,class (:foreground ,prim-light))))
+   ;; face to use for TODO keyword
+   `(org-todo ((,class (:weight bold :foreground ,warning))))
+   ;; face to use for DONE keyword
+   `(org-done ((,class (:weight bold :foreground ,sec-dark))))
+   ;; face to use for :tag: markers
+   `(org-tag ((,class (:foreground ,prim-light))))
+   ;; face for org-mode tables
+   `(org-table ((,class (:foreground ,prim))))
+   ;; face used for [[links][description]]
+   `(org-link ((,class (:underline t :foreground ,prim-light))))
+      ;; face used for footnodes: [fn:1]
+   `(org-footnote  ((,class (:underline t :foreground ,prim-light))))
+
+   ;; face to use for <date> occurences
+   `(org-date ((,class (:underline t :foreground ,sec))))
+   ;; face for highlighting date under cursor in calendar selections
+   `(org-date-selected ((,class (:underline t :foreground ,sec))))
+
+   ;; face for Monday-Friday entries in agenda view
+   `(org-agenda-date ((,class (:foreground ,prim))))
+   ;; face for today in agenda view
+   `(org-agenda-date-today ((,class (:foreground ,prim-light :weight bold))))
+   ;; face for Saturday and Sunday entries in agenda view
+   `(org-agenda-date-weekend ((,class (:foreground ,discrete))))
+   ;; face used in agenda to indicate lines switched to DONE
+   `(org-agenda-done ((,class (:weight bold :foreground ,sec-dark))))
+   ;; face used in agenda for captions and dates
+   `(org-agenda-structure ((,class (:inherit bold :foreground ,sec-dark))))
+
+   ;; face for =verbatim= items
+   `(org-verbatim ((,class (:foreground ,prim-light))))
+
+   ;; face to use for content between #+BEGIN_SRC and #+END_SRC (unless a
+   ;; language syntax is specified via e.g. `#BEGIN_SRC emacs_lisp`)
+   `(org-block ((,class (:background ,bg-prim :foreground ,prim-light :extend t))))
+   ;; source code block #+BEGIN_SRC line
+   `(org-block-begin-line ((,class (:background ,bg-prim :foreground ,sec :extend t))))
+   ;; source code block #+END_SRC line
+   `(org-block-end-line ((,class (:background ,bg-prim :foreground ,sec :extend t))))
    ))
 
 ;;;###autoload
